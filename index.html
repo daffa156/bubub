@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Daffa & Camila's Universe</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="glass-nav">
+        <a href="#gallery" class="active">📸 Foto</a>
+        <a href="#games">🎮 Main</a>
+        <a href="#wishes">✨ Wishes</a>
+    </nav>
+
+    <header class="fun-header">
+        <div class="sticker-decoration">✨</div>
+        <h1>Daffa <span class="heart">❤️</span> Camila</h1>
+        <p class="tagline">Explore our happy little world!</p>
+    </header>
+
+    <section id="gallery" class="content-section">
+        <div class="section-title">
+            <h2>Kita berdua mah pakai website sendiri kan be buat nyimpan foto hihi</h2>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterGallery('all')">Semua</button>
+                <button class="filter-btn" onclick="filterGallery('fav')">Favorit</button>
+                <button class="filter-btn" onclick="filterGallery('silly')">Lucu</button>
+            </div>
+
+            <div class="upload-area">
+                <select id="uploadCategory" class="category-select">
+                    <option value="fav">❤️ Favorit</option>
+                    <option value="silly">😚 Lucu</option>
+                </select>
+                
+                <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="previewImage(event)">
+                
+                <button class="upload-btn" onclick="document.getElementById('imageInput').click()">
+                    📸 Upload Foto
+                </button>
+            </div>
+        </div>
+
+        <div class="masonry-grid">
+            
+            <div class="grid-item fav">
+                <img src="images/foto-hero.jpg" onclick="openModal(this)" loading="lazy">
+                <div class="sticker">🔥</div>
+            </div>
+
+            <div class="grid-item silly">
+                <img src="images/kenangan2.jpg" onclick="openModal(this)" loading="lazy">
+            </div>
+
+            <div class="grid-item fav">
+                <img src="images/kenangan1.jpg" onclick="openModal(this)" loading="lazy">
+                <div class="sticker">❤️</div>
+            </div>
+
+            <div class="grid-item silly">
+                <img src="images/WhatsApp Image 2026-02-04 at 04.14.18 (3).jpg" onclick="openModal(this)" loading="lazy">
+            </div>
+
+            <div class="grid-item fav">
+                <img src="images/WhatsApp Image 2026-02-04 at 04.14.17 (2).jpg" onclick="openModal(this)" loading="lazy">
+            </div>
+
+            <div class="grid-item text-box">
+                <p>"Terimakasih untuk semua kebahagiaan ini sayangkuu, bebe akan selalu menjadi tokoh utama dihidup aku selamanya."</p>
+            </div>
+
+            <div class="grid-item fav">
+                <img src="images/WhatsApp Image 2026-02-09 at 10.19.21 (1).jpg" onclick="openModal(this)" loading="lazy">
+            </div>
+
+        </div>
+    </section>
+
+    <section id="games" class="content-section">
+        <div class="section-title">
+            <h2>Arcade Zone</h2>
+            <p>Main dulu biar gak bosen!</p>
+        </div>
+
+        <div class="game-selector">
+            <button class="game-tab active" onclick="switchGame('memory')">🧠 Ingatan</button>
+            <button class="game-tab" onclick="switchGame('quiz')">❓ Kuis Kita</button>
+        </div>
+
+        <div id="memory-game" class="game-container active">
+            <div class="game-board" id="board"></div>
+            <p id="win-msg" class="hidden">Yey! Bebe Hebat Love you sayangkuu cintaakuu! 🎉</p>
+            <button class="restart-btn" onclick="initMemory()">Ulangi</button>
+        </div>
+
+        <div id="quiz-game" class="game-container hidden">
+            <div id="quiz-box">
+                <h3 id="question-text">Loading...</h3>
+                <div class="options-grid" id="options-area"></div>
+            </div>
+            <p id="quiz-result"></p>
+        </div>
+    </section>
+
+    <section id="wishes" class="content-section">
+        <div class="section-title">
+            <h2>Our Bucket List</h2>
+            <p>Hal-hal yang harus kita wujudkan bareng.</p>
+        </div>
+        
+        <div class="checklist">
+            <label class="task">
+                <input type="checkbox" checked>
+                <span class="checkmark"></span>
+                <span class="text">Bertemu lagi (Done!) ✅</span>
+            </label>
+            <label class="task">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="text">Jalan-jalan di Daerah Istimewa Yogyakarta</span>
+            </label>
+            <label class="task">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="text">Masak bareng sampai gosong</span>
+            </label>
+            <label class="task">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <span class="text">Movie marathon seharian</span>
+            </label>
+        </div>
+    </section>
+
+    <footer>
+        <p>Created with 💖 by Daffa</p>
+    </footer>
+
+    <div id="modal" class="modal-overlay">
+        <span class="close-btn">&times;</span>
+        <img id="modalImg" src="">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
